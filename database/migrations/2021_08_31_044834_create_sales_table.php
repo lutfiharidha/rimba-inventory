@@ -17,13 +17,11 @@ class CreateSalesTable extends Migration
             $table->id();
             $table->string('code_transaksi');
             $table->string('tanggal_transaksi');
-            $table->bigInteger('customer_id')->unsigned();
-            $table->bigInteger('item_id')->unsigned();
-            $table->integer('qty');
+            $table->integer('total_bayar');
             $table->integer('total_diskon');
             $table->integer('total_harga');
-            $table->integer('total_bayar');
             $table->timestamps();
+
         });
     }
 

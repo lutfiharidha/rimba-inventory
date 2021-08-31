@@ -24,7 +24,7 @@
             </div>
           </div>
 
-          <div class="dropdown">
+          <div class="dropdown mr-3">
             <button
               class="btn btn-secondary dropdown-toggle"
               type="button"
@@ -41,6 +41,26 @@
               >
               <router-link to="/create/customer" class="nav-item nav-link"
                 >Create Customer</router-link
+              >
+            </div>
+          </div>
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Sale
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <router-link to="/sale" class="nav-item nav-link"
+                >Sale List</router-link
+              >
+              <router-link to="/create/sale" class="nav-item nav-link"
+                >Create Sale</router-link
               >
             </div>
           </div>

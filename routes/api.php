@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\SaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,5 @@ use App\Http\Controllers\CustomerController;
 Route::middleware('api')->group(function () {
     Route::resource('items', ItemController::class);
     Route::resource('customers', CustomerController::class);
+    Route::resource('sales', SaleController::class);
 });

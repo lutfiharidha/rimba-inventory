@@ -6,6 +6,10 @@ import AllCustomer from './components/customer/AllCustomers.vue';
 import CreateCustomer from './components/customer/CreateCustomer.vue';
 import EditCustomer from './components/customer/EditCustomer.vue';
 
+import AllSale from './components/sale/AllSales.vue';
+import CreateSale from './components/sale/CreateSale.vue';
+import EditSale from './components/sale/EditSale.vue';
+
 export const routes = [
     {
         name: 'item.index',
@@ -37,5 +41,21 @@ export const routes = [
         name: 'customer.edit',
         path: '/edit/customer/:id',
         component: EditCustomer
+    },
+
+    {
+        name: 'sale.index',
+        path: '/sale',
+        component: AllSale
+    },
+    {
+        name: 'sale.create',
+        path: '/create/sale',
+        component: CreateSale
+    },
+    {
+        name: 'sale.edit',
+        path: '/edit/sale/:id',
+        component: EditSale
     }
 ];
