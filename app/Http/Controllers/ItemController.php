@@ -16,39 +16,44 @@ class ItemController extends Controller
     {
 
         $imageName = time().'.'.$request->image->getClientOriginalExtension();
-        $request->image->move(public_path('img'), $imageName);
+        $request->image->move(public_path('img/items'), $imageName);
 
 
         $item = new Item;
         $item->nama_item = $request->nama_item;
-        $item->unit = 'kg';
-        $item->stok = 1;
-        $item->harga_satuan = 1;
+        $item->unit = $request->unit;
+        $item->stok = $request->stok;
+        $item->harga_satuan = $request->harga_satuan;
         $item->image = $imageName;
         $item->save();
-        // $request['item'] = json_decode($request['item']);
-        return response()->json($request);
+        return response()->json('success');
 
     }
 
     public function show($id)
     {
-        $product = Product::find($id);
-        return response()->json($product);
+        $item = Item::find($id);
+        return response()->json($item);
     }
 
-    public function update($id, Request $request)
+    public function update(Item $item, Request $request)
     {
-        $product = Product::find($id);
-        $product->update($request->all());
+        // $imageName = time().'.'.$request->image->getClientOriginalExtension();
+        // $request->image->move(public_path('img/items'), $imageName);
+
+        $item->nama_item = $request->nama_item;
+        $item->unit = $request->unit;
+        $item->stok = $request->stok;
+        $item->harga_satuan = $request->harga_satuan;
+        // $item->image = $imageName;
+        $item->save();
 
         return response()->json('Product updated!');
     }
 
-    public function destroy($id)
+    public function destroy(Item $item)
     {
-        $product = Product::find($id);
-        $product->delete();
+        $item->delete();
 
         return response()->json('Product deleted!');
     }

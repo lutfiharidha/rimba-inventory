@@ -16,13 +16,12 @@ class CreateCustomersTable extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('contact');
+            $table->string('kontak');
             $table->string('email');
             $table->string('alamat');
             $table->string('diskon');
-            $table->string('tipe_diskon');
             $table->string('ktp');
-            $table->enum('tipe', ['persentase', 'fix']);
+            $table->enum('tipe_diskon', ['persentase', 'fix']);
             $table->timestamps();
         });
     }
