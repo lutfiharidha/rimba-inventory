@@ -17,17 +17,19 @@ class SaleController extends Controller
     public function store(Request $request)
     {
         $sale = New Sale;
-        $saleDetail->code_transaksi = $request->code_transaksi;
-        $saleDetail->tanggal_transaksi = $request->tanggal_transaksi;
+        $sale->code_transaksi = $request->code_transaksi;
+        $sale->tanggal_transaksi = $request->tanggal_transaksi;
         $sale->total_bayar = $request->total_bayar;
         $sale->total_diskon = $request->total_diskon;
         $sale->total_harga = $request->total_harga;
         $sale->save();
+
         $products = $request->product_id;
-        foreach ($products as $key => $product) {
+        $items = explode(',', $products[0]);
+        foreach ($items as $key => $product) {
             $saleDetail = New SaleDetail;
             $saleDetail->customer_id = $request->customers_id;
-            $saleDetail->item_id = $product[$key];
+            $saleDetail->item_id = $items[$key];
             $saleDetail->sale_id = $sale->id;
             $saleDetail->qty = 2;
             $saleDetail->save();

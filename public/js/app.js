@@ -2595,6 +2595,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2801,7 +2803,9 @@ __webpack_require__.r(__webpack_exports__);
       formData.append("customers_id", this.customers_id);
       formData.append("product_id[]", this.product_id);
       this.axios.post("http://localhost:8000/api/sales", formData).then(function (response) {
-        return console.log(response);
+        return _this3.$router.push({
+          name: "sale.index"
+        });
       })["catch"](function (err) {
         return console.log(err);
       })["finally"](function () {
@@ -39398,7 +39402,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container p-3" }, [
-    _c("h2", { staticClass: "text-center" }, [_vm._v("Products List")]),
+    _c("h2", { staticClass: "text-center" }, [_vm._v("Customer List")]),
     _vm._v(" "),
     _c("table", { staticClass: "table" }, [
       _vm._m(0),
@@ -39758,7 +39762,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container p-3" }, [
-    _c("h3", { staticClass: "text-center" }, [_vm._v("Create Customer")]),
+    _c("h3", { staticClass: "text-center" }, [_vm._v("Edit Customer")]),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col" }, [
@@ -40559,46 +40563,15 @@ var render = function() {
           return _c("tr", { key: sale.id }, [
             _c("td", [_vm._v(_vm._s(sale.id))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(sale.nama_item))]),
+            _c("td", [_vm._v(_vm._s(sale.code_transaksi))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(sale.unit))]),
+            _c("td", [_vm._v(_vm._s(sale.tanggal_transaksi))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(sale.stok))]),
+            _c("td", [_vm._v(_vm._s(sale.total_harga))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(sale.harga_satuan))]),
+            _c("td", [_vm._v(_vm._s(sale.total_diskon))]),
             _vm._v(" "),
-            _c("td", [
-              _c(
-                "div",
-                { staticClass: "btn-group", attrs: { role: "group" } },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "btn btn-success",
-                      attrs: {
-                        to: { name: "item.edit", params: { id: sale.id } }
-                      }
-                    },
-                    [_vm._v("Update")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger",
-                      on: {
-                        click: function($event) {
-                          return _vm.deleteSale(sale.id)
-                        }
-                      }
-                    },
-                    [_vm._v("\n              Delete\n            ")]
-                  )
-                ],
-                1
-              )
-            ])
+            _c("td", [_vm._v(_vm._s(sale.total_bayar))])
           ])
         }),
         0
@@ -40615,15 +40588,15 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("ID")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Name")]),
+        _c("th", [_vm._v("Kode Transaksi")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Unit")]),
+        _c("th", [_vm._v("Tanggal Transaksi")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Stok")]),
+        _c("th", [_vm._v("Total Harga")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Harga Satuan")]),
+        _c("th", [_vm._v("Total Diskon")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Actions")])
+        _c("th", [_vm._v("Total Bayar")])
       ])
     ])
   }
@@ -40651,7 +40624,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container p-3" }, [
-    _c("h3", { staticClass: "text-center" }, [_vm._v("Create Customer")]),
+    _c("h3", { staticClass: "text-center" }, [_vm._v("Create Order")]),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col" }, [
