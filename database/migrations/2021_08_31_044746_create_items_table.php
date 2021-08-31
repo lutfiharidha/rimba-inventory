@@ -19,7 +19,7 @@ class CreateItemsTable extends Migration
             $table->enum('unit', ['kg', 'pcs']);
             $table->integer('stok');
             $table->integer('harga_satuan');
-            $table->integer('image');
+            $table->string('image');
             $table->timestamps();
         });
     }
